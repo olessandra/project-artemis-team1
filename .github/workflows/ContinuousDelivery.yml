@@ -52,14 +52,14 @@ jobs:
         if: ${{env.enable_sonar == 'true'}}
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          SONAR_TOKEN: "${{ secrets.SONAR_TOKEN}}"
-          SONAR_HOST_URL: sonarcloud.io
+          SONAR_TOKEN: "${{ secrets.SONAR_TOKEN}}" 
+          SONAR_HOST_URL: https://sonarcloud.io
         with:
           projectBaseDir: .
-          args: >
-            -Dsonar.organization=sanyoc
-            -Dsonar.projectKey=sanyoc_project-artemis
-            -Dsonar.verbose=true
+#           args: 
+#             -Dsonar.organization=sanyoc
+#             -Dsonar.projectKey=sanyoc_project-artemis
+#             -Dsonar.verbose=true
        
 
       # Runs a set of commands using the runners shell
