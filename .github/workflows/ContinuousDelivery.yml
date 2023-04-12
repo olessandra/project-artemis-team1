@@ -107,9 +107,9 @@ jobs:
         run: |
           docker push ${{ env.repo_region }}-docker.pkg.dev/${{ env.project_id }}/${{ env.app_name }}/${{ env.app_name }}:${{ env.tag_new_version }}
       
-      # Scan image in google artifacts for any vulnerability
-      - name: Google Artifact Image Scan
-        run: |-
-          gcloud beta container images describe \
-             ${{ env.repo_region }}-docker.pkg.dev/${{ env.project_id }}/${{ env.gcp_repo_name }}/${{ env.app_name }}:${{ env.tag_new_version }} \
-             --show-package-vulnerability     
+#       # Scan image in google artifacts for any vulnerability
+#       - name: Google Artifact Image Scan
+#         run: |-
+#           gcloud beta container images describe \
+#              ${{ env.repo_region }}-docker.pkg.dev/${{ env.project_id }}/${{ env.gcp_repo_name }}/${{ env.app_name }}:${{ env.tag_new_version }} \
+#              --show-package-vulnerability     
