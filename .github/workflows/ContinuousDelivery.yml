@@ -48,17 +48,30 @@ jobs:
         run: |
           git clone ${{ env.repo }}  
 
-      - name: SonarCloud Scan
-#         if: ${{env.enable_sonar == 'true'}}
-        uses: SonarSource/sonarqube-scan-action@master -X
-        env:
-          SONAR_TOKEN: "${{ secrets.SONAR_TOKEN}}" 
-          SONAR_HOST_URL: https://sonarcloud.io
-        with:
-          args: >
-            -Dsonar.organization=sanyoc
-            -Dsonar.projectKey=sanyoc_project-artemis
-            -Dsonar.sources=./
+#       - name: SonarCloud Scan
+# #         if: ${{env.enable_sonar == 'true'}}
+#         uses: SonarSource/sonarqube-scan-action@master
+#         env:
+#           SONAR_TOKEN: "${{ secrets.SONAR_TOKEN}}" 
+#           SONAR_HOST_URL: https://sonarcloud.io
+#         with:
+#           args: >
+#             -Dsonar.organization=sanyoc
+#             -Dsonar.projectKey=sanyoc_project-artemis
+#             -Dsonar.sources=./
+        
+      - name: Setup sonarqube
+        if: ${{env.enable_sonar == 'true'}}
+        uses: warchant/setup-sonar-scanner@v3
+
+      - name: Run sonarqube
+        if: ${{env.enable_sonar == 'true'}}
+        run: sonar-scanner
+            -Dsonar.organization=sanyoc                              
+            -Dsonar.projectKey=sanyoc_project-artemis                        
+            -Dsonar.login=881f1468e840dc8c4184284275de8f409c3dce49                                   
+            -Dsonar.sources=artemis/
+            -Dsonar.host.url=https://sonarcloud.io
        
 
       # Runs a set of commands using the runners shell
