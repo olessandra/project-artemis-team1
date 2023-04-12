@@ -11,7 +11,7 @@ env:
 # Sonar stuff, please update accordingly
   enable_sonar:    "true"
   sonar_organization: "sanyoc"
-  sonar_projectKey: "project-artemis"
+  sonar_projectKey: "sanyoc_project-artemis"
   sonar_login: "881f1468e840dc8c4184284275de8f409c3dce49"
 
 
