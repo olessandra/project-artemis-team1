@@ -55,12 +55,11 @@ jobs:
           SONAR_TOKEN: "${{ secrets.SONAR_TOKEN}}" 
           SONAR_HOST_URL: https://sonarcloud.io
         with:
-#           projectBaseDir: .
+          projectBaseDir: .
           args: >
             -Dsonar.organization=sanyoc
             -Dsonar.projectKey=sanyoc_project-artemis
-            -Dsonar.sources=./artemis/
-            -Dsonar.python.version=3
+            -Dsonar.sources=./
         
 
       # Runs a set of commands using the runners shell
