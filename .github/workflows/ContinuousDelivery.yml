@@ -10,9 +10,9 @@ env:
 
 # Sonar stuff, please update accordingly
   enable_sonar:    "true"
-  sonar_organization: "${{ secret.SONAR_ORGANIZATION }}"
-  sonar_projectKey: "${{ secret.SONAR_PROJECT_KEY }}"
-  sonar_login: "${{ secret.SONAR_TOKEN }}"
+  sonar_organization: "${{ secrets.SONAR_ORGANIZATION }}"
+  sonar_projectKey: "${{ secrets.SONAR_PROJECT_KEY }}"
+  sonar_login: "${{ secrets.SONAR_TOKEN }}"
 
 
 
