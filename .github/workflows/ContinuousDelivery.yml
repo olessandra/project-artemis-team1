@@ -56,10 +56,10 @@ jobs:
           SONAR_HOST_URL: sonarcloud.io
         with:
           projectBaseDir: .
-          args: >
+          args:
             -Dsonar.organization=sanyoc
             -Dsonar.projectKey=sanyoc_project-artemis
-            -Dsonar.sources=./ 
+            -Dsonar.sources=.
        
        
 
