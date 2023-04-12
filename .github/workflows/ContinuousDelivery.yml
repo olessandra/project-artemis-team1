@@ -59,7 +59,7 @@ jobs:
           args: >
             -Dsonar.organization=sanyoc
             -Dsonar.projectKey=sanyoc_project-artemis
-            -Dsonar.sources=./
+            -Dsonar.sources=./artemis/
             -Dsonar.python.version=3
         
 
