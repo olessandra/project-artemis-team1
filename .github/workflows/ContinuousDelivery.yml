@@ -57,9 +57,8 @@ jobs:
         with:
           projectBaseDir: .
           args: >
-            -D sonar.organization=sanyoc
-            -D sonar.projectKey=sanyoc_project-artemis
-            -D sonar.sources=./
+            -Dsonar.organization=sanyoc
+            -Dsonar.projectKey=sanyoc_project-artemis
         
 
       # Runs a set of commands using the runners shell
