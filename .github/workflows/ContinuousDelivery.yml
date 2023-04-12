@@ -10,9 +10,9 @@ env:
 
 # Sonar stuff, please update accordingly
   enable_sonar:    "true"
-  sonar_organization: "sanyoc"
-  sonar_projectKey: "sanyoc_project-artemis"
-  sonar_login: "881f1468e840dc8c4184284275de8f409c3dce49"
+ # sonar_organization: "sanyoc"
+ # sonar_projectKey: "sanyoc_project-artemis"
+#  sonar_login: "881f1468e840dc8c4184284275de8f409c3dce49"
 
 
 
@@ -48,19 +48,20 @@ jobs:
         run: |
           git clone ${{ env.repo }}  
 
-      - name: Setup sonarqube
+      - name: SonarCloud Scan
         if: ${{env.enable_sonar == 'true'}}
-        uses: warchant/setup-sonar-scanner@v3
-
-      - name: Run sonarqube
-        if: ${{env.enable_sonar == 'true'}}
-        run: sonar-scanner
-            -Dsonar.organization=${{ env.sonar_organization }}                              
-            -Dsonar.projectKey=${{ env.sonar_projectKey }}                         
-            -Dsonar.login=${{ env.sonar_login }}                                   
-            -Dsonar.sources=./
-            -Dsonar.host.url=https://sonarcloud.io
-
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: "${{ secrets.SONAR_TOKEN}}"
+          SONAR_HOST_URL: sonarcloud.io
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.organization=sanyoc
+            -Dsonar.projectKey=sanyoc_project-artemis
+            -Dsonar.sources=./ 
+       
+       
 
       # Runs a set of commands using the runners shell
       - name: Switch Branches
