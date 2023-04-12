@@ -60,15 +60,15 @@ jobs:
             -Dsonar.organization=sanyoc
             -Dsonar.projectKey=sanyoc_project-artemis
             -Dsonar.sources=./
-            -Dsonar.verbose=true
+            -Dsonar.python.version=3
         
 
       # Runs a set of commands using the runners shell
-      - name: Switch Branches
-        working-directory: ${{ env.app_name }}
-        run: |
-          git checkout ${{ env.app_version }}
-          ls -l
+#       - name: Switch Branches
+#         working-directory: ${{ env.app_name }}
+#         run: |
+#           git checkout ${{ env.app_version }}
+#           ls -l
 
 
       # Runs a set of commands using the runners shell
