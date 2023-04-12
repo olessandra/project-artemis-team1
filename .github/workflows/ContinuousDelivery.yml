@@ -50,7 +50,7 @@ jobs:
 
       - name: SonarCloud Scan
 #         if: ${{env.enable_sonar == 'true'}}
-        uses: SonarSource/sonarqube-scan-action@master
+        uses: SonarSource/sonarqube-scan-action@master -X
         env:
           SONAR_TOKEN: "${{ secrets.SONAR_TOKEN}}" 
           SONAR_HOST_URL: https://sonarcloud.io
